@@ -1,17 +1,34 @@
 package main
 
-import (
-	"fmt"
-)
+type Maze struct {
+	Grid   []string
+	Width  int
+	Height int
+}
+
+func createMaze() Maze {
+	layout := Maze{
+		Grid: []string{
+			"##########",
+			"#        #",
+			"# ####### #",
+			"# #     # #",
+			"# # ### # #",
+			"# # # # # #",
+			"#   # #   #",
+			"####### ###",
+			"#C       #",
+			"##########",
+		},
+		Width:  10,
+		Height: 10,
+	}
+	return layout
+}
 
 func main() {
-	var width, height int
-	fmt.Print("Enter maze width: ")
-	fmt.Scanln(&width)
-	fmt.Print("Enter maze height: ")
-	fmt.Scanln(&height)
+	maze := createMaze()
 
-	maze := NewMaze(width, height)
-	maze.generate()
-	maze.display()
+	// TODO: line-by-line maze printing
+	printMaze()
 }
